@@ -2,6 +2,7 @@ import express, { json } from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./db/dbConnect.js";
 import userRoutes from "./routes/userRotuer.js";
+import bookRoutes from "./routes/bookRouter.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/books", bookRoutes);
 
 // Port
 const PORT = process.env.PORT || 3000;
