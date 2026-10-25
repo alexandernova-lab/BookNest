@@ -1,1 +1,69 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #faf9f6; /* page background */
+  --color-surface: #ffffff; /* cards, inputs */
+  --color-surface-hover: #f0eee8; /* hover on nav items, menus */
+  --color-ink: #242522; /* main text */
+  --color-muted: #5f5f58; /* secondary text */
+  --color-border: #e7e3da; /* cards, dividers */
+  --color-border-strong: #8f8b80; /* inputs, outline buttons */
+  --color-primary: #355e4b;
+  --color-primary-hover: #2b4d3d;
+  --color-primary-soft: #e6eee9; /* active nav, "Reading" badge */
+  --color-primary-ink: #284a3a;
+  --color-secondary: #edebe5; /* "Completed" badge, quiet buttons */
+  --color-secondary-ink: #4a4a45;
+  --color-warning-soft: #f7ecd6; /* "Want to Read" badge */
+  --color-warning-ink: #7a5412;
+  --color-error: #b3382c;
+  --color-error-ink: #a12f24; /* error message text */
+  --color-error-soft: #fdf3f1;
+  --color-success: #2f7a52; /* NOT in your designs yet, see note below */
+  --color-success-soft: #e3f1e8;
+
+  /* Fonts */
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Sizes your designs use that Tailwind's defaults don't have */
+  --text-h1: 2.75rem;
+  --text-h1--line-height: 1.1; /* 44px */
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 1.1; /* 28px */
+  --text-ui: 0.9375rem;
+  --text-ui--line-height: 1.5; /* 15px buttons, nav */
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4; /* 13px hints, errors */
+
+  /* Radius, named by what they're for */
+  --radius-tile: 0.625rem; /* 10px icon tiles, nav items */
+  --radius-control: 0.75rem; /* 12px inputs, buttons */
+  --radius-card: 1rem; /* 16px cards, panels */
+  --radius-panel: 1.5rem; /* 24px large CTA blocks */
+
+  /* Shadows (restrained, as in the designs) */
+  --shadow-card: 0 1px 2px rgb(36 37 34 / 0.04);
+  --shadow-button: 0 1px 2px rgb(36 37 34 / 0.12);
+  --shadow-cover: 0 6px 14px rgb(36 37 34 / 0.14);
+  --shadow-overlay: 0 20px 50px rgb(36 37 34 / 0.25);
+
+  /* Page width */
+  --container-page: 73.5rem; /* 1176px, used as max-w-page */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-ink antialiased;
+  }
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}

@@ -2,8 +2,7 @@ import { Outlet } from "react-router";
 
 const MainLayout = () => {
   return (
-    <div>
-      <h1>Hello this is main layout</h1>
+    <div className=" max-w-page mx-auto bg-background">
       <Outlet />
     </div>
   );
