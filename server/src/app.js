@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./db/dbConnect.js";
 import userRoutes from "./routes/userRotuer.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 dotenv.config({
   path: ".env",
@@ -11,6 +12,12 @@ dotenv.config({
 const app = express();
 
 app.use(json());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  }),
+);
 app.use(cookieParser());
 
 // Routes
