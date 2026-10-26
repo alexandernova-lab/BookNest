@@ -6,6 +6,8 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import Dashboard from "../pages/Dashboard";
 import DashboardLayout from "../layout/DashboardLayout";
+import LibraryPage from "../pages/LibraryPage.jsx";
+import CreateBookPage from "../pages/CreateBookPage.jsx";
 
 const RoutesFile = () => {
   const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const RoutesFile = () => {
         {
           path: "dashboard",
           element: <Dashboard />,
+        },
+        {
+          path: "library",
+          element: <LibraryPage />,
+        },
+        {
+          path: "/create",
+          element: <CreateBookPage />,
         },
       ],
     },
