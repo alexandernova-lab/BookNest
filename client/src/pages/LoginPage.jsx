@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import formimg from "../assets/formimg.png";
 import { Book, Eye, EyeOff, AlertCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 import api from "../libs/axios";
+import AuthContext from "../contexts/AuthContext.jsx";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -15,16 +16,21 @@ const LoginPage = () => {
   //   Navigate
   const navigate = useNavigate();
 
+  // Auth Context
+  const { dispatch } = useContext(AuthContext);
+
   //   Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const data = await api.post("/users/login", {
+      const res = await api.post("/users/login", {
         email,
         password,
       });
-      if (data.status === 200) {
+      console.log(res.data.existingUser);
+      if (res.status === 200) {
+        dispatch({ type: "LOGIN", payload: res.data.existingUser });
         navigate("/dashboard");
       }
     } catch (error) {

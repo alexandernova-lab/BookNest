@@ -61,7 +61,9 @@ export const loginUser = async (req, res) => {
       maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
-    return res.status(200).json({ message: "User login success" });
+    return res
+      .status(200)
+      .json({ message: "User login success", existingUser });
   } catch (error) {
     res.clearCookie("jwt");
     return res.status(400).json(error.message);
@@ -73,4 +75,8 @@ export const logoutUser = (req, res) => {
     maxAge: 1,
   });
   res.status(200).json({ message: "User logout success" });
+};
+
+export const me = async (req, res) => {
+  return res.status(200).json({ message: "User me ", user: req.user });
 };

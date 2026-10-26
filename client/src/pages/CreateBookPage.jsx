@@ -79,6 +79,7 @@ export default function AddBookForm() {
                     <option value="Productivity">Productivity</option>
                     <option value="Finance">Finance</option>
                     <option value="Design">Design</option>
+                    <option value="Programming">Programming</option>
                   </select>
                   <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
                 </div>
@@ -132,7 +133,7 @@ export default function AddBookForm() {
                     <Star
                       className={`w-6 h-6 ${
                         star <= (hoverRating || rating)
-                          ? "fill-ink text-ink"
+                          ? "fill-yellow-400 text-yellow-400"
                           : "text-border-strong"
                       }`}
                     />
@@ -169,12 +170,22 @@ export default function AddBookForm() {
               <p className="text-caption text-muted mb-4">
                 JPG, PNG or WebP, up to 5 MB
               </p>
-              <button
-                type="button"
-                className="bg-surface text-ink border border-border-strong hover:bg-surface-hover text-ui font-medium px-5 py-2 rounded-control shadow-button transition-colors"
+
+              {/* Hidden native file input */}
+              <input
+                id="cover-upload"
+                type="file"
+                accept="image/png, image/jpeg, image/webp"
+                className="hidden"
+              />
+
+              {/* Styled button acting as a label for the hidden file input */}
+              <label
+                htmlFor="cover-upload"
+                className="cursor-pointer bg-surface text-ink border border-border-strong hover:bg-surface-hover text-ui font-medium px-5 py-2 rounded-control shadow-button transition-colors inline-block"
               >
                 Choose file
-              </button>
+              </label>
             </div>
 
             {/* File Upload Size Error Message */}
